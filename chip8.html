@@ -1,0 +1,79 @@
+<!doctypehtml>
+    <html lang=en>
+
+    <head>
+        <meta charset=utf-8>
+        <meta content="width=device-width,initial-scale=1" name=viewport>
+        <title>CHIP-8</title>
+        <style>
+            body {
+                margin: 0;
+                background: #111;
+                color: #ddd;
+                font: 14px/1.4 system-ui, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding: 24px 12px
+            }
+
+            h1 {
+                font-size: 18px;
+                font-weight: 600;
+                margin: 0
+            }
+
+            #canvas {
+                background: #000;
+                image-rendering: pixelated;
+                width: 640px;
+                max-width: 100%;
+                aspect-ratio: 2/1;
+                border: 1px solid #333
+            }
+
+            .controls {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                flex-wrap: wrap
+            }
+
+            button,
+            select {
+                font: inherit;
+                background: #222;
+                color: #ddd;
+                border: 1px solid #444;
+                border-radius: 4px;
+                padding: 4px 8px
+            }
+
+            #status {
+                min-height: 1.2em;
+                color: #888;
+                font-size: 12px
+            }
+
+            .hint {
+                color: #666;
+                font-size: 12px;
+                max-width: 640px;
+                text-align: center
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>CHIP-8</h1>
+        <div class=controls><label>ROM: <select id=rom></select></label> <button id=load>Load & run</button></div>
+        <canvas height=32 id=canvas tabindex=-1 width=64></canvas>
+        <div id=status>Loading…</div>
+        <div class=hint>Keypad is mapped to <code>1 2 3 4 / Q W E R / A S D F / Z X C V</code>. Click the canvas first
+            so it receives key events.</div>
+        <script>var statusEl = document.getElementById("status"), selectEl = document.getElementById("rom"), params = new URLSearchParams(location.search), wantedRom = params.get("rom"), Module = { canvas: document.getElementById("canvas"), print: function (t) { console.log(t) }, printErr: function (t) { console.error(t) }, setStatus: function (t) { t && (statusEl.textContent = t) }, onRuntimeInitialized: function () { var t = []; !function e(n) { var a; try { a = FS.readdir(n) } catch (t) { return } a.forEach((function (a) { if ("." !== a && ".." !== a) { var o = "/" === n ? "/" + a : n + "/" + a, c = FS.stat(o).mode; FS.isDir(c) ? e(o) : t.push(o.replace(/^\//, "")) } })) }("/roms"), t.sort(), t.forEach((function (t) { var e = document.createElement("option"); e.value = t, e.textContent = t, t === wantedRom && (e.selected = !0), selectEl.appendChild(e) })), wantedRom ? (statusEl.textContent = "Running " + wantedRom, Module.canvas.focus(), Module.callMain(["-f", wantedRom])) : statusEl.textContent = 'Pick a ROM and press "Load & run".' } }; document.getElementById("load").addEventListener("click", (function () { selectEl.value && (params.set("rom", selectEl.value), location.search = params.toString()) }))</script>
+        <script async src=chip8.js></script>
+    </body>
+
+    </html>

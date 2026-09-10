@@ -77,3 +77,32 @@ time {
 body.crt {
     filter: sepia(0.3) contrast(1.1);
 }
+
+#canvas {
+    background: #000;
+    image-rendering: pixelated;
+    width: 640px;
+    max-width: 100%;
+    aspect-ratio: 2/1;
+    border: 1px solid #333
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+#status {
+    min-height: 1.2em;
+    color: #888;
+    font-size: 12px
+}
+
+.hint {
+    color: #666;
+    font-size: 12px;
+    max-width: 640px;
+    text-align: center
+}

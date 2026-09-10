@@ -3,7 +3,7 @@ const allProjects = [
         category: "Emulator",
         title: "CHIP8 Emulator",
         description: "Simple introductory emulator.",
-        demo: "#",
+        demo: "chip8-demo.html",
         featured: true
     },
     {
