@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "Retro Font";
+    src: url(fonts/Bremlin.otf);
+    font-display: swap;
+}
+
+:root {
+    --bg:        #ece1cb;
+    --panel:     #e3d4b4;
+    --ink:       #2f2a24;
+    --muted:     #6b6152;
+    --accent:    #a8432f;
+    --accent-dk: #7d2f20;
+    --line:      #c2ab7e;  /* tan — borders */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: monospace;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: var(--bg);
+    color: var(--ink);
+}
+
+h1, h2, h3 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-dk)
+}
+
+nav {
+    background: var(--panel);
+    padding: 0.75rem;
+    border: 2px solid var(--line);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+}
+
+article {
+    background: var(--panel);
+    padding: 0.75rem;
+    border: 2px solid var(--line);
+    margin-bottom: 0.8rem;
+    box-shadow: 4px 4px 0 var(--accent);
+}
+
+time {
+    color: var(--muted);
+    margin-left: 4rem;
+}
+
+#website-title {
+    font-size: 3rem;
+    text-decoration: none;
+    font-family: "Retro Font", monospace;
+}
