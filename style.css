@@ -68,8 +68,12 @@ time {
     margin-left: 4rem;
 }
 
-#website-title {
+#website-title a {
     font-size: 3rem;
     text-decoration: none;
     font-family: "Retro Font", monospace;
+}
+
+body.crt {
+    filter: sepia(0.3) contrast(1.1);
 }
