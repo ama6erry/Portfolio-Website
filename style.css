@@ -69,23 +69,25 @@ nav ul {
     width: 100%;
 }
 
-nav ul button {
+nav ul li:last-child {
+    margin-left: auto;
+}
+
+nav ul li button {
     background-color: var(--accent);
     color: var(--panel);
     border: 2px solid var(--line);
-    box-shadow: 4px 4px 0 var(--muted); 
+    box-shadow: 4px 4px 0 var(--muted);
     padding: 0.5rem;
-    margin-left: auto;
     transition-duration: 0.2s;
 }
 
-nav ul button:hover {
+nav ul li button:hover {
     background-color: var(--panel);
     color: var(--accent);
     border: 2px solid var(--line);
-    box-shadow: 4px 4px 0 var(--muted); 
+    box-shadow: 4px 4px 0 var(--muted);
     padding: 0.5rem;
-    margin-left: auto;
 }
 
 nav a {
@@ -111,8 +113,31 @@ time {
     font-family: "Retro Font", monospace;
 }
 
-body.crt {
-    filter: sepia(0.3) contrast(1.1);
+@keyframes crt-flicker {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.99; }
+}
+
+@keyframes crt-scroll {
+    from { background-position: 0 0; }
+    to   { background-position: 0 24px; }
+}
+
+body.crt::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0 2px,
+        rgba(0,0,0,0.15) 2px 4px
+    );
+    animation-name: crt-flicker, crt-scroll;
+    animation-duration: 0.3s, 6s;
+    animation-timing-function: ease, linear;
+    animation-iteration-count: infinite, infinite;
 }
 
 #canvas {

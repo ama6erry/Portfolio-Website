@@ -9,7 +9,7 @@ const header = `
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="chip8-demo.html">Demo</a></li>
-                <button id="crt-toggle">CRT mode</button>
+                <li><button id="crt-toggle">CRT mode</button></li>
             </ul>
         </nav>
     </header>
