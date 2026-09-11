@@ -9,29 +9,19 @@
 </head>
 
 <body>
-    <header>
-        <div id="website-title">
-            <a href="index.html">&#xE070;hmad Alberr&#xE0B8;</a>
-        </div> 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="chip8-demo.html">Demo</a></li>
-            </ul>
-        </nav>
-        <button id="crt-toggle">CRT mode</button>
-    </header>
-    
-    <h1>CHIP-8</h1>
-    <p>Built entirely in C. For this demo, I compiled it into WebAssembly using a nifty compiler called emscripten.</p>
+    <div id = "site-header"></div>
+    <main>
+        <h1>CHIP-8</h1>
+        <p>Built entirely in C. For this demo, I compiled it into WebAssembly using a nifty compiler called emscripten.
+        </p>
 
-    <div class=controls><label>ROM: <select id=rom></select></label> <button id=load>Load & run</button></div>
-    <canvas height=32 id=canvas tabindex=-1 width=64></canvas>
-    <div id=status>Loading…</div>
-    <div class=hint>Keypad is mapped to <code>1 2 3 4 / Q W E R / A S D F / Z X C V</code>. Click the canvas first
-        so it receives key events.</div>
-    <script>var statusEl = document.getElementById("status"), selectEl = document.getElementById("rom"), params = new URLSearchParams(location.search), wantedRom = params.get("rom"), Module = { canvas: document.getElementById("canvas"), print: function (t) { console.log(t) }, printErr: function (t) { console.error(t) }, setStatus: function (t) { t && (statusEl.textContent = t) }, onRuntimeInitialized: function () { var t = []; !function e(n) { var a; try { a = FS.readdir(n) } catch (t) { return } a.forEach((function (a) { if ("." !== a && ".." !== a) { var o = "/" === n ? "/" + a : n + "/" + a, c = FS.stat(o).mode; FS.isDir(c) ? e(o) : t.push(o.replace(/^\//, "")) } })) }("/roms"), t.sort(), t.forEach((function (t) { var e = document.createElement("option"); e.value = t, e.textContent = t, t === wantedRom && (e.selected = !0), selectEl.appendChild(e) })), wantedRom ? (statusEl.textContent = "Running " + wantedRom, Module.canvas.focus(), Module.callMain(["-f", wantedRom])) : statusEl.textContent = 'Pick a ROM and press "Load & run".' } }; document.getElementById("load").addEventListener("click", (function () { selectEl.value && (params.set("rom", selectEl.value), location.search = params.toString()) }))</script>
-    <script async src=chip8.js></script>
+        <div class=controls><label>ROM: <select id=rom></select></label> <button id=load>Load & run</button></div>
+        <canvas height=32 id=canvas tabindex=-1 width=64></canvas>
+        <div id=status>Loading…</div>
+        <div class=hint>Keypad is mapped to <code>1 2 3 4 / Q W E R / A S D F / Z X C V</code>. Click the canvas first
+            so it receives key events.</div>
+        <script>var statusEl = document.getElementById("status"), selectEl = document.getElementById("rom"), params = new URLSearchParams(location.search), wantedRom = params.get("rom"), Module = { canvas: document.getElementById("canvas"), print: function (t) { console.log(t) }, printErr: function (t) { console.error(t) }, setStatus: function (t) { t && (statusEl.textContent = t) }, onRuntimeInitialized: function () { var t = []; !function e(n) { var a; try { a = FS.readdir(n) } catch (t) { return } a.forEach((function (a) { if ("." !== a && ".." !== a) { var o = "/" === n ? "/" + a : n + "/" + a, c = FS.stat(o).mode; FS.isDir(c) ? e(o) : t.push(o.replace(/^\//, "")) } })) }("/roms"), t.sort(), t.forEach((function (t) { var e = document.createElement("option"); e.value = t, e.textContent = t, t === wantedRom && (e.selected = !0), selectEl.appendChild(e) })), wantedRom ? (statusEl.textContent = "Running " + wantedRom, Module.canvas.focus(), Module.callMain(["-f", wantedRom])) : statusEl.textContent = 'Pick a ROM and press "Load & run".' } }; document.getElementById("load").addEventListener("click", (function () { selectEl.value && (params.set("rom", selectEl.value), location.search = params.toString()) }))</script>
+        <script async src=chip8.js></script>
+    </main>
+    <script src="site.js"></script>
 </body>
