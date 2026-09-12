@@ -2,6 +2,22 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            try {
+                var saved = JSON.parse(localStorage.getItem("themeColors"));
+                if (!saved) return;
+                var vars = document.documentElement.style;
+                vars.setProperty("--bg", saved.bg);
+                vars.setProperty("--panel", saved.panel);
+                vars.setProperty("--ink", saved.ink);
+                vars.setProperty("--muted", saved.muted);
+                vars.setProperty("--accent", saved.accent);
+                vars.setProperty("--accent-dk", saved.accentdk);
+                vars.setProperty("--line", saved.line);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -1,0 +1,74 @@
+[
+    {
+        "name" : "Famicom",
+        "bg" : "#efe6d3",
+        "panel" : "#e7dabf",
+        "ink" : "#443f3a",
+        "muted" : "#81796c",
+        "accent" : "#b55f4e",
+        "accentdk" : "#904e41",
+        "line" : "#cbb891"
+    },
+    {
+        "name" : "NES",
+        "bg" : "#e9e8e6",
+        "panel" : "#d6d4d0",
+        "ink" : "#2b2b2b",
+        "muted" : "#6e6c68",
+        "accent" : "#c8332a",
+        "accentdk" : "#8f2019",
+        "line" : "#9a9691"
+    },
+    {
+        "name" : "SNES",
+        "bg" : "#e7e6ea",
+        "panel" : "#d3d0da",
+        "ink" : "#332f3d",
+        "muted" : "#716c7d",
+        "accent" : "#8b7ab8",
+        "accentdk" : "#5f5089",
+        "line" : "#b3aec2"
+    },
+    {
+        "name" : "Game Boy",
+        "bg" : "#dcdccd",
+        "panel" : "#c9c9b8",
+        "ink" : "#3a352c",
+        "muted" : "#7a7568",
+        "accent" : "#823c3c",
+        "accentdk" : "#5c2a2a",
+        "line" : "#a8a690"
+    },
+    {
+        "name" : "PlayStation",
+        "bg" : "#e4e3e0",
+        "panel" : "#cfcdc9",
+        "ink" : "#2d2d2f",
+        "muted" : "#706e6b",
+        "accent" : "#0070cc",
+        "accentdk" : "#00497f",
+        "line" : "#c9a3ae",
+        "stripes" : ["#d93a3a", "#0070cc", "#e0b93a", "#3aa35a"]
+    },
+    {
+        "name" : "Nintendo 64",
+        "bg" : "#1c1c20",
+        "panel" : "#28282e",
+        "ink" : "#e6e6ea",
+        "muted" : "#96959c",
+        "accent" : "#4f8fe0",
+        "accentdk" : "#2c5f95",
+        "line" : "#3d3d44",
+        "stripes" : ["#3aa35a", "#0070cc", "#d93a3a", "#e0b93a"]
+    },
+    {
+        "name" : "Xbox",
+        "bg" : "#141414",
+        "panel" : "#1f1f1f",
+        "ink" : "#e8e8e8",
+        "muted" : "#9a9a9a",
+        "accent" : "#3ea635",
+        "accentdk" : "#2b7526",
+        "line" : "#3a3a3a"
+    }
+]

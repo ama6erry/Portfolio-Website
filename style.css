@@ -69,8 +69,10 @@ nav ul {
     width: 100%;
 }
 
-nav ul li:last-child {
+nav ul li.nav-actions {
     margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
 }
 
 nav ul li button {
@@ -112,6 +114,27 @@ time {
     text-decoration: none;
     font-family: "Retro Font", monospace;
 }
+
+.logo-flourish {
+    display: none;
+    gap: 3px;
+    margin-top: 0.25rem;
+}
+
+.logo-flourish.visible {
+    display: flex;
+}
+
+.logo-flourish span {
+    width: 18px;
+    height: 6px;
+    transform: skewX(-15deg);
+}
+
+.logo-flourish span:nth-child(1) { background: var(--stripe-1, var(--line)); }
+.logo-flourish span:nth-child(2) { background: var(--stripe-2, var(--line)); }
+.logo-flourish span:nth-child(3) { background: var(--stripe-3, var(--line)); }
+.logo-flourish span:nth-child(4) { background: var(--stripe-4, var(--line)); }
 
 @keyframes crt-flicker {
     0% { opacity: 0.8; }
